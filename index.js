@@ -11,10 +11,12 @@ const username=process.env.MONGODB_USERNAME;
 const password=process.env.MONGODB_PASSWORD;
 
 const encodedPassword = encodeURIComponent("Sabirali@123");
-mongoose.connect(`mongodb+srv://alisabir167167:${encodedPassword}@cluster0.xkqzc6p.mongodb.net/registrationFormDB`, {
-   useNewUrlParser: true,
-   useUnifiedTopology: true,
-});
+
+
+// With this
+mongoose.connect(`mongodb+srv://alisabir167167:${password}@cluster0.xkqzc6p.mongodb.net/registrationFormDB`)
+  .then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.error('MongoDB connection error:', err));
 
 
 
